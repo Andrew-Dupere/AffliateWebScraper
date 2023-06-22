@@ -1,0 +1,38 @@
+
+
+cantonSearchURL = 'https://academy.usconcealedcarry.com/search/instructors?query=Sumner,%20IL&lat=38.7165&lng=-87.90596&searchType=instructors'
+
+instructorSearchURL = 'https://academy.usconcealedcarry.com/search/instructors'
+
+instructorPageURL = 'https://training.usconcealedcarry.com/instructor/7bb6f6da-9325-11ec-ab91-0242ac120003'
+
+
+
+search results have a link for earch instructor
+
+<a class="InstructorCard_wrap__2YBy0  " href="https://training.usconcealedcarry.com/instructor/7bb6f6da-9325-11ec-ab91-0242ac120003?_gl=1*6wp3ck*_gcl_au*MzIzMzMwOTUwLjE2ODU4Mzk3MTU.*_ga*MTI4OTM2OTc5Ny4xNjg1ODM5NzE1*_ga_MFZ3H4HBX9*MTY4NTg5NDM3NS4yLjEuMTY4NTg5NTA2OS4xLjAuMA..&amp;_ga=2.25579965.161840682.1685839716-1289369797.1685839715">
+
+
+search results url: https://academy.usconcealedcarry.com/search/instructors?query=%20Florida&lat=33.31804&lng=-55.77631&searchType=instructors
+
+
+there are 42 results, when you hit "show more" another 42 populate and will max out at 1000
+
+selenium will be needed
+
+
+
+on the search results each instructor is inside an a tag with class = InstructorCard_wrap__2YBy0  
+
+and then the href is the url for the individual instructor page
+Then the instructor page has a card with name, phone, location, license number
+
+take in a url for a location search, grab each individual coach page url, for every coach page url go to it and grab the relevent contact info.
+
+
+
+grab the url for a search result, use selenium to click "show more" 4 times, grab every individual instructor page URL, for every instructor url go to the page, grab the contact info
+
+
+
+
