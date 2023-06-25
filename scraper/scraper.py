@@ -55,21 +55,26 @@ showMore.click()
 #grab each individual instructor's url and save to an object
 coachUrls = driver.find_elements(By.CLASS_NAME,'InstructorCard_wrap__arGO7  ')
 
+#create a coaches dictionary with the coaches name as the key and the url as the value
 coaches = {}
 
 for url in coachUrls:
     coaches[url.find_element(By.TAG_NAME,'h3').text] = url.get_attribute('href')
     
 
-    
+#go to the url for each coach and update the coaches dictionary with the scraped data
 for name, url in coaches.items():
 
     driver.get(url)
+    #wait for the javascript to load the instructor card
     sr = WebDriverWait(driver,timeout=5).until(lambda d:d.find_element(By.CLASS_NAME,"bp3-card"))
 
     contact = sr.text.split('\n')
+
+    #update the dictionary
     coaches[name] = contact
 
+#make a dataframe and write it to an excel file.
 df = pd.DataFrame(data = coaches.values(), index = coaches.keys())
 
 df.to_excel('coachestest.xlsx')
