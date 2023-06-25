@@ -36,3 +36,34 @@ grab the url for a search result, use selenium to click "show more" 4 times, gra
 
 
 
+June notes
+
+Iterate through the list of insturctor URLS and grab their contact info in an object
+
+Instructor pages have varying degrees of info
+
+First, Last, Location, Phone, Email, certs
+
+Some pages have an instructor name, some have a company name
+
+instructor card class:
+bp3-card bp3-elevation-1 containers-Instructor-Card-Card__card--tf00L
+
+
+
+6.24 
+
+The individual instructor page is a javascript rendered web page so scraping the data with requests 
+and bs4 will not work. 
+
+Selenium could be used again 
+
+selenium with phantom JS or dryscrape
+https://stackoverflow.com/questions/8049520/how-can-i-scrape-a-page-with-dynamic-content-created-by-javascript-in-python
+
+
+or use webdriver wait with selenium
+
+webdriver wait can be used to wait for the javascript elements to load
+
+contact info items can be split into a list on \n line separations
