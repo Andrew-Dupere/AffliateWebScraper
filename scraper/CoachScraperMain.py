@@ -23,8 +23,6 @@ from datetime import datetime
 #setup filepath to selenium location
 path = r'C:\Users\Andre\Downloads\chromedriver_win32\chromedriver.exe'
 
-#establish driver for chrome
-
 #activate headless mode
 options = Options()
 options.add_argument("--headless=new")
