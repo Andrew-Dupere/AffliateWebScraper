@@ -34,10 +34,10 @@ driver = webdriver.Chrome(executable_path=path,options=options)
 site = 'https://academy.usconcealedcarry.com/search/instructors'
 
 #define search term
-location = 'Richmond'
+location = 'Seattle'
 
 driver.get(site)
-time.sleep(1.5)
+time.sleep(1)
 
 #Find the search box, enter location and press enter, use webdriverwait javascript rendered elements
 searchbox = WebDriverWait(driver,timeout=10).until(lambda d:d.find_element(By.CSS_SELECTOR,'#__next > div > div.SearchLayout_outerwrap__OXm_U > div > div.SearchPageSubhead_subhead__N7Vem.SearchPageSubhead_sticky__oY3Gx > div > div.w-full.md\:w-80.md\:mr-2 > div > div > input'))
@@ -46,7 +46,7 @@ searchbox.clear()
 searchbox.send_keys(location)
 
 searchbox.send_keys(Keys.RETURN)
-time.sleep(1.5)
+time.sleep(1)
 
 #click show more to show more instrutors, 4 cicks will display 168 instructors 
 showMore = driver.find_element(By.XPATH,'//*[@id="__next"]/div/div[2]/div/div[3]/button')
@@ -77,8 +77,18 @@ for name, url in coaches.items():
     if len(contact) == 6:
         contact.insert(0,'null')
 
-    #save the list as a value in the coaches dictionary
-    coaches[name] = contact
+"""
+Please add regex algo for email and phone number
+
+email:
+^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$
+
+phone:
+^(\+0?1\s)?\(?\d{3}\)?[\s.-]\d{3}[\s.-]\d{4}$
+
+^(\+\d{1,2}\s?)?\(?\d{3}\)?[\s.-]?\d{3}[\s.-]?\d{4}$
+
+"""
 
 #save the dictionary to a pandas dataframe and write the datafrime to an excel file.
 df = pd.DataFrame(data = coaches.values(), index = coaches.keys())
